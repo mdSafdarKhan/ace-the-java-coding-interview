@@ -2,6 +2,7 @@ package datastructure;
 
 public class Main {
 	public static void main(String[] args) {
+		number_5_find_minimum_value_in_an_array();
 		//number_4_array_of_products_of_all_elements_except_itself();
 		//number_3_find_two_numbers_that_add_upto_n();
 		// number_2_merge_two_sorted_arrays();
