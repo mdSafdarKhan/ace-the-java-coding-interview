@@ -1,6 +1,6 @@
 package datastructure;
 
-public class Main {
+public class Number_2_Arrays {
 	public static void main(String[] args) {
 		number_10_rearrange_sorted_array_in_min_max_form();
 		//number_9_rearrange_positive_and_negative_values();
