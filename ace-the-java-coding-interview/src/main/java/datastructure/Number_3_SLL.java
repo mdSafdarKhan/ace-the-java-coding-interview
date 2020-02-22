@@ -15,15 +15,25 @@ public class Number_3_SLL {
 		singlyLinkedList.printList();
 		singlyLinkedList.searchNode("omega");
 		singlyLinkedList.searchNode("gama");
+		singlyLinkedList.deleteAtHead();
+		singlyLinkedList.printList();
+		singlyLinkedList.deleteAtHead();
+		singlyLinkedList.printList();
+		System.out.println(singlyLinkedList.size);
+		singlyLinkedList.deleteByValue("omega");
+		singlyLinkedList.printList();
+		System.out.println(singlyLinkedList.size);
 	}
 }
 
 class SinglyLinkedList{
 	
+	int size;
 	Node headNode;
 	
 	public SinglyLinkedList() {
 		headNode = null;
+		size = 0;
 	}
 	
 	public void insertAtHead(String data) {
@@ -31,6 +41,7 @@ class SinglyLinkedList{
 		node.data = data;
 		node.nextNode = headNode;
 		headNode = node;
+		size++;
 	}
 	
 	public void insertAtEnd(String data) {
@@ -46,6 +57,7 @@ class SinglyLinkedList{
 			currentNode = currentNode.nextNode;
 		}
 		currentNode.nextNode = node;
+		size++;
 	}
 	
 	public void insertAfter(String data, String previous) {
@@ -61,6 +73,7 @@ class SinglyLinkedList{
 			}
 			temp = temp.nextNode;
 		}
+		size++;
 	}
 	
 	public void searchNode(String data) {
@@ -75,6 +88,41 @@ class SinglyLinkedList{
 		System.out.println(data + " found: " + found);
 	}
 	
+	public void deleteAtHead() {
+		Node temp = headNode.nextNode;
+		if(temp == null) {
+			headNode = null;
+			return;
+		}
+		headNode = temp;
+		size--;
+	}
+	
+	public void deleteByValue(String data) {
+		
+		if(isEmpty()) {
+			System.out.println("List is Empty!");
+			return;
+		}
+		
+		if(headNode.data.equals(data)) {
+			deleteAtHead();
+			size--;
+			return;
+		}
+		
+		Node currentNode = headNode;
+		Node previousNode = null;
+		while(currentNode != null) {
+			if(currentNode.data.equals(data)) {
+				previousNode.nextNode = currentNode.nextNode;
+			}
+			previousNode = currentNode;
+			currentNode = currentNode.nextNode;
+		}
+		size--;
+	}
+	
 	public void printList() {
 		Node temp = headNode;
 		while(temp != null) {
@@ -82,6 +130,13 @@ class SinglyLinkedList{
 			temp = temp.nextNode;
 		}
 		System.out.println(temp);
+	}
+	
+	public boolean isEmpty() {
+		if(size == 0)
+			return true;
+		else
+			return false;
 	}
 }
 
