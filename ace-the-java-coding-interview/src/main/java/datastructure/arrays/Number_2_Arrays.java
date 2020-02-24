@@ -1,4 +1,4 @@
-package datastructure;
+package datastructure.arrays;
 
 public class Number_2_Arrays {
 	public static void main(String[] args) {
