@@ -1,4 +1,4 @@
-package datastructure.stack;
+package datastructure.stackandqueue;
 
 public class MyStack {
 
